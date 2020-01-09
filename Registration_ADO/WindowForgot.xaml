@@ -1,0 +1,105 @@
+﻿<Window x:Class="Registration_ADO.WindowForgot"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Registration_ADO"
+        mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="WindowForgot" Height="600" Width="500"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" Foreground="Azure">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FFDCD21E" Offset="0.900"/>
+            <GradientStop Color="Azure"/>
+            <GradientStop Color="#BF324B80"/>
+            <GradientStop Color="#FF0596AA" Offset="0.600"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="Azure"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+    </Window.Resources>
+    <Border Padding="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel  Orientation="Vertical"  Grid.Row="0" >
+                <TextBlock  HorizontalAlignment="Center"
+                            Text="Укажите почту"
+                            Margin="15"
+                           />
+                <TextBox Name="YourEmail" FontSize="20" 
+                         VerticalAlignment="Center"
+                         Margin="20 0 10 15"
+                         materialDesign:HintAssist.Hint="Your Email" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         ToolTip="Укажите свою почту"
+                         />
+                <Button  x:Name="GetCode"
+                        Content="Получить код"
+                        HorizontalAlignment="Center"
+                        Margin="0,20,20,20"
+                             Click="SendCode_Click"
+                />
+
+
+
+            </StackPanel>
+            <StackPanel  Grid.Row="1"  >
+                <TextBlock HorizontalAlignment="Center"       
+                           Margin="10"
+                           Text="Новый пароль"
+                />
+
+                <PasswordBox Name="PassTextBox" 
+                                 materialDesign:HintAssist.Hint="Password"
+                                Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                Margin="5" FontSize="25"
+                                VerticalAlignment="Center"
+                    />
+                <PasswordBox Name="Confirm_Password" materialDesign:HintAssist.Hint="Confirm Password" 
+                            
+                             VerticalAlignment="Bottom"
+                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                             Margin="10 5" 
+                             FontSize="25"
+                    />
+
+            </StackPanel>
+
+            <StackPanel   Grid.Row="2" >
+                <TextBlock Text="Введите код получения по почте" VerticalAlignment="Top"
+                           HorizontalAlignment="Center"
+                           Margin="0 10 0 5"/>
+                <TextBox Name="VerifyCode" FontSize="25" 
+                         IsEnabled="False"
+                         VerticalAlignment="Center" 
+                         HorizontalAlignment="Center"
+                         materialDesign:HintAssist.Hint="Verify Code"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         ToolTip="Введите присланный код"
+                         Margin="0 10 0 10"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Name="Restore" Content="Восстановить"
+                            IsEnabled="False"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center"
+                        Margin="10" Click="Restore_Click"/>
+                    <Button Name="Escape" Content="Отмена"
+                            Click="Escape_Click" />
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+    </Border>
+
+</Window>
